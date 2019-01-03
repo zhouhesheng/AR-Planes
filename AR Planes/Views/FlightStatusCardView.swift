@@ -63,8 +63,8 @@ class FlightStatusCardView: UINibView {
         
         let arrowLayer = CAShapeLayer()
         arrowLayer.path = arrowPath.cgPath
-        arrowLayer.lineCap = kCALineCapRound
-        arrowLayer.lineJoin = kCALineJoinRound
+        arrowLayer.lineCap = CAShapeLayerLineCap.round
+        arrowLayer.lineJoin = CAShapeLayerLineJoin.round
         arrowLayer.strokeColor = UIColor(white: 1.0, alpha: 1.0).cgColor
         arrowLayer.fillColor = nil
         arrowLayer.lineWidth = 4
@@ -206,7 +206,7 @@ open class UINibView : UIView {
         self.addSubview(nibView)
         
         nibView.translatesAutoresizingMaskIntoConstraints = false
-        let attributes: [NSLayoutAttribute] = [.top, .left, .right, .bottom]
+        let attributes: [NSLayoutConstraint.Attribute] = [.top, .left, .right, .bottom]
         for attribute in attributes {
             let constraint = NSLayoutConstraint(item: self, attribute: attribute, relatedBy: .equal, toItem: self.nibView, attribute: attribute, multiplier: 1.0, constant: 0.0)
             self.addConstraint(constraint)

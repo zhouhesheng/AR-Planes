@@ -49,7 +49,7 @@ class WebSocketManager {
             return []
         }
         
-        let nearbyFlights = flightData.flatMap { flightInfo -> Flight? in
+        let nearbyFlights = flightData.compactMap { flightInfo -> Flight? in
             let icao = flightInfo["icao"] as? String ?? "--"
             
             guard let call = (flightInfo["call"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines),
